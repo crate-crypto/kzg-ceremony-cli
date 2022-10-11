@@ -26,7 +26,7 @@ pub fn cmd() {
     let bytes = read_file(ID_TOKEN_FILE);
     let encoded_id_token = String::from_utf8(bytes).expect("could not read id token from file");
     let token_data: IdToken = serde_json::from_str(&encoded_id_token).unwrap();
-    // let token_data = decode::<IdToken>(&encoded_id_token, &key, &Validation::default()).unwrap();
+
     info!(
         "Welcome {}. Your ID provider is {}",
         token_data.nickname, token_data.provider,
